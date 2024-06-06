@@ -12,7 +12,7 @@ const AboutMe = (props: InformationProps) => {
   return (
     <div>
       <p>
-        {fullName} from {from}
+        I'm {fullName} from {from} and my favorite movies are:
       </p>
       <Movies movies={favoriteMovies} />
     </div>

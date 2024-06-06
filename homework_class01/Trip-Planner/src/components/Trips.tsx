@@ -3,7 +3,7 @@ const Trips: string[] = ['London', 'Paris', 'Tokyo'];
 
 return (
     <div>
-        <h2>Your Trips:</h2>
+        <h2>My Trips:</h2>
         <ul>
         {Trips.map((trip: string) => (
           <li key={trip}>{trip}</li>
