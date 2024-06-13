@@ -1,0 +1,15 @@
+.user-details {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.user-details.light {
+  background-color: gray;
+  color: blue;
+}
+
+.user-details.dark {
+  background-color: black;
+  color: white;
+}
+
