@@ -1,9 +1,8 @@
 import { useContext } from "react";
-
 import { Container } from "../../Container/Container";
+import { ProductContext } from "../../Contex/ProductContex";
 import ProductCard from "../../components/ProductCard/ProductCart";
 import "./Home.css";
-import { ProductContext } from "../../Contex/ProductContex";
 
 const Home = () => {
   const context = useContext(ProductContext);

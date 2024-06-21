@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../Contex/ProductContex';
+import { Product } from '../../types/types';
 import { createProduct } from '../../services/product.service';
 import './AddProduct.css';
-import { Product } from '../../types/types';
 
 const AddProduct = () => {
   const { addProduct} = useContext(ProductContext);
@@ -28,7 +28,7 @@ const AddProduct = () => {
     e.preventDefault();
     try {
       
-      console.log('Submit form with data:', newProduct);
+      console.log('Submit form:', newProduct);
       const createdProduct: Product = await createProduct({
         ...newProduct,
         id: Date.now().toString()
@@ -43,47 +43,49 @@ const AddProduct = () => {
   
   return (
   <form onSubmit={handleSubmit}>
-  <input
-  type="text"
-  placeholder="Title"
-  value={newProduct.title}
-  onChange={(e) => handleChangeInput(e, 'title')}
-  required
-  />
-  <input
-  type="number"
-  placeholder="Price"
-  value={newProduct.price}
-  onChange={(e) => handleChangeInput(e, 'price')}
-  required
-  />
-  <input
-  type="text"
-  placeholder="Description"
-  value={newProduct.description}
-  onChange={(e) => handleChangeInput(e, 'description')}
-  required
-  />
-  <input
-  type="text"
-  placeholder="Image URL"
-  value={newProduct.image}
-  onChange={(e) => handleChangeInput(e, 'image')}
-  required
-  />
-  <select
-  value={newProduct.category}
-  onChange={(e) => handleChangeInput(e, 'category')}
-  required
-  >
-  <option value="">Select Category</option>
-  <option value="electronics">Electronics</option>
-  <option value="jewelery">Jewelery</option>
-  <option value="men's clothing">Men's Clothing</option>
-  <option value="women's clothing">Women's Clothing</option>
-  </select>
-  <button type="submit">Add Product</button>
-  </form>
+      <input type="text" 
+      placeholder="Title" 
+      value={newProduct.title} 
+      onChange={(e) => handleChangeInput(e, 'title')} required
+      />
+
+      <input
+      type="number"
+      placeholder="Price"
+      value={newProduct.price}
+      onChange={(e) => handleChangeInput(e, 'price')}
+      required
+      />
+
+      <input
+      type="text"
+      placeholder="Description"
+      value={newProduct.description}
+      onChange={(e) => handleChangeInput(e, 'description')}
+      required
+      />
+
+      <input
+      type="text"
+      placeholder="Image URL"
+      value={newProduct.image}
+      onChange={(e) => handleChangeInput(e, 'image')}
+      required
+      />
+
+      <select
+      value={newProduct.category}
+      onChange={(e) => handleChangeInput(e, 'category')}
+      required
+      >
+      <option value="">Select Category</option>
+      <option value="electronics">Electronics</option>
+      <option value="jewelery">Jewelery</option>
+      <option value="men's clothing">Men's Clothing</option>
+      <option value="women's clothing">Women's Clothing</option>
+      </select>
+     <button type="submit">Add Product</button>
+     </form>
   );
   };
 
