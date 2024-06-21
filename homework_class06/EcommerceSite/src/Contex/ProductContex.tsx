@@ -52,7 +52,7 @@ export const ProductProvider = ({ children }:productProviderProps) => {
   }, []);
 
   const addProduct = (newProduct: Product) => {
-    setProducts((prevProducts) => [...prevProducts, newProduct]);
+    setProducts((prevProducts) => [...prevProducts, {...newProduct, id:Date.now().toString()}]);
   };
 
   const deleteProduct = (productId: string) => {

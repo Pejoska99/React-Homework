@@ -4,16 +4,20 @@ import { Product } from '../../types/types';
 import { createProduct } from '../../services/product.service';
 import './AddProduct.css';
 
-const AddProduct = () => {
-  const { addProduct} = useContext(ProductContext);
-  const [newProduct, setNewProduct,] = useState({
+
+const initaialState = {
   title: '',
   price: 0,
   description: '',
   image: '',
   category: '',
   rating: { rate: 0, count: 0 }
-  });
+  };
+
+const AddProduct = () => {
+  const { addProduct} = useContext(ProductContext);
+  const [newProduct, setNewProduct,] = useState(
+  initaialState);
   
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, key: string) => {
   const value = key === 'price' ? parseFloat(event.target.value) || 0 : event.target.value;
@@ -35,6 +39,7 @@ const AddProduct = () => {
       });
       console.log('Product created successfully:', createdProduct);
       addProduct(createdProduct);
+      setNewProduct(initaialState);
     } catch (error) {
       console.error('Failed to create product:', error);
     }
